@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Extract compliance evidence from git repositories, package dependencies, and CI/CD pipelines",
   "main": "src/index.js",
+  "type": "module",
   "bin": {
     "ai-compliance-extract": "src/cli.js"
   },
   "scripts": {
     "extract": "node src/cli.js",
-    "test": "echo 'Run: ai-compliance-extract --repo /path/to/repo'"
+    "test": "vitest run"
   },
   "keywords": [
     "compliance",
@@ -28,5 +29,8 @@
     "SETUP.md",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "devDependencies": {
+    "vitest": "^3.0.0"
+  }
 }
