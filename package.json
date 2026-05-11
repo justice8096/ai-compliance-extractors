@@ -20,9 +20,17 @@
     "supply-chain"
   ],
   "author": "Justice E. Chase",
-  "license": "MIT",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justice8096/ai-compliance-extractors.git"
+  },
+  "bugs": {
+    "url": "https://github.com/justice8096/ai-compliance-extractors/issues"
+  },
+  "homepage": "https://github.com/justice8096/ai-compliance-extractors#readme",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "files": [
     "src/",
