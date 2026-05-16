@@ -1,66 +1,52 @@
-# Setup Instructions
+# Setup
 
-The AI Compliance Extractors package includes scaffolding and CLI tools, but the actual extractor modules are large (~100KB total) and should be copied from the source repository.
+`ai-compliance-extractors` is a zero-dependency Node.js package. The extractors and CLI ship inside the npm tarball — `npm install` is the entire setup.
 
-## Step 1: Copy Extractor Modules
-
-Copy the extractor scripts from D:\LLMComplianceSkill\tools\extractors\ to src/extractors/:
+## Install
 
 ```bash
-mkdir -p src/extractors
-cp D:\LLMComplianceSkill\tools\extractors\git-evidence.js src/extractors/
-cp D:\LLMComplianceSkill\tools\extractors\package-evidence.js src/extractors/
-cp D:\LLMComplianceSkill\tools\extractors\ci-evidence.js src/extractors/
+npm install -g @justice8096/ai-compliance-extractors
 ```
 
-Or as a one-liner:
+Or as a project dependency:
 
 ```bash
-mkdir -p src/extractors && cp D:\LLMComplianceSkill\tools\extractors\*.js src/extractors/
+npm install @justice8096/ai-compliance-extractors
 ```
 
-## Step 2: Verify Installation
-
-Run the CLI help to confirm setup:
+## Verify
 
 ```bash
-node src/cli.js --help
+ai-compliance-extract --help
 ```
 
 You should see:
+
 ```
 Usage: ai-compliance-extract --repo <path> [--output <path>] [--format json|markdown]
 ```
 
-## Step 3: Test Extraction
+## Run extraction
 
 ```bash
-node src/cli.js --repo /path/to/repo --output evidence.json
+ai-compliance-extract --repo /path/to/repo --output evidence.json
 ```
 
-The output file should contain evidence from all three extractors.
+The output file contains merged evidence from all three extractors (git, package, CI).
 
-## Troubleshooting
+## Invoke individual extractors
 
-### "extractor not found" error
-
-If you see this error, the extractor modules were not copied. Run:
+Each extractor also runs standalone — useful when you only want one signal or want to compose them into your own pipeline:
 
 ```bash
-mkdir -p src/extractors
-cp D:\LLMComplianceSkill\tools\extractors\*.js src/extractors/
+node node_modules/@justice8096/ai-compliance-extractors/src/extractors/git-evidence.js --repo /path/to/repo --days 365
+node node_modules/@justice8096/ai-compliance-extractors/src/extractors/package-evidence.js --repo /path/to/repo
+node node_modules/@justice8096/ai-compliance-extractors/src/extractors/ci-evidence.js --repo /path/to/repo
 ```
 
-### Permission denied on extracted output
+All three write JSON to stdout and progress/errors to stderr.
 
-Some files may require elevated permissions to access. Run the extractor in the same shell as your repository.
+## Requirements
 
-## Integration
-
-Once set up, you can use the package:
-
-- **CLI**: `ai-compliance-extract --repo <path>`
-- **Node.js**: `require('ai-compliance-extractors')`
-- **Direct extractors**: `node src/extractors/git-evidence.js --repo <path>`
-
-Extractors output JSON suitable for merging into compliance configuration files.
+- Node.js 18+
+- `git` CLI on PATH (only required for `git-evidence`)

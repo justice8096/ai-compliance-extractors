@@ -27,9 +27,15 @@ describe('Git Evidence Extractor', () => {
     });
 
     it('should identify PR-based workflow', () => {
+      // Threshold matches production: `src/extractors/git-evidence.js:156`
+      // sets `prBasedWorkflow = mergePercentage > 80` (strict greater-than),
+      // so 80 itself is NOT classified as PR-based. The fixture below was
+      // previously inconsistent — claimed 80 → true while the predicate
+      // returned false. Fixed 2026-05-10 by aligning the fixture with the
+      // production predicate.
       const testCases = [
         { mergePercentage: 85, expected: true },
-        { mergePercentage: 80, expected: true },
+        { mergePercentage: 80, expected: false },
         { mergePercentage: 79, expected: false },
         { mergePercentage: 50, expected: false },
         { mergePercentage: 100, expected: true }

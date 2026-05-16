@@ -12,17 +12,12 @@ Extract compliance evidence from git repositories, dependency manifests, and CI/
 ## Installation
 
 ```bash
-npm install ai-compliance-extractors
+npm install @justice8096/ai-compliance-extractors
 ```
 
-Then set up the extractor modules:
+The package ships with all extractor modules (`src/extractors/ci-evidence.js`, `git-evidence.js`, `package-evidence.js`) and the CLI binary — no additional setup steps required after install. The CLI is available as `ai-compliance-extract` once the package is on your PATH (or via `npx ai-compliance-extract`).
 
-```bash
-cp D:\LLMComplianceSkill\tools\extractors\*.js src/extractors/
-cp D:\LLMComplianceSkill\tools\extract-evidence.js src/
-```
-
-See [SETUP.md](SETUP.md) for detailed instructions.
+See [SETUP.md](SETUP.md) for environment notes and CI integration tips.
 
 ## Usage
 
@@ -280,4 +275,4 @@ Tests cover:
 
 ## License
 
-MIT
+[CC0 1.0 Universal](LICENSE) — public domain dedication. Use freely without attribution.
