@@ -34,4 +34,4 @@ jobs:
         if: github.event_name == 'push'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public || echo "npm publish skipped (no token configured)"
+        run: npm publish --access public
