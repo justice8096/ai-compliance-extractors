@@ -1,5 +1,5 @@
 {
-  "name": "ai-compliance-extractors",
+  "name": "@justice8096/ai-compliance-extractors",
   "version": "1.0.0",
   "description": "Extract compliance evidence from git repositories, package dependencies, and CI/CD pipelines",
   "main": "src/index.js",
