@@ -15,6 +15,12 @@ All four drivers affect admissibility / persuasive weight of downstream artifact
 
 ## [Unreleased]
 
+## [1.1.1] — 2026-05-17
+
+### Fixed `[defect]`
+- Corrected the OWASP LLM authority pin in `skills/security-scan/SKILL.md` Scanners section + `CHANGELOG.md` provenance template. v1.1.0 shipped with `"OWASP LLM Top 10 v1.1 (2024-10)"`, which was wrong on two counts: (a) v1.1 was the *2023* cycle's October-2023 update, not a 2024-10 publication; (b) the security-scan SKILL's actual coverage targets the 2025 release. Standardized on **"OWASP Top 10 for LLM Applications 2025 (published 2024-11)"** — the OWASP project's canonical name for the 2025 release. Caught by Codex P2 on cwe-mapper PR #2 ([commit 32700db](https://github.com/justice8096/cwe-mapper/commit/32700db)); sibling skills fixed in the same wave (sast-dast-scanner v1.1.0 PR #2 [9d907b4](https://github.com/justice8096/sast-dast-scanner/commit/9d907b4), cwe-mapper v1.1.0 PR #2 [32700db](https://github.com/justice8096/cwe-mapper/commit/32700db), post-commit-audit v1.2.1).
+- **Downstream impact**: any extractor output (JSON/Markdown/HTML) produced via the security-scan SKILL by v1.1.0 between 2026-05-17 and now carries the wrong OWASP LLM pin. Re-install v1.1.1 from npm and re-run if the output is being relied on for legal/compliance evidence.
+
 ## [1.1.0] — 2026-05-17
 
 Skill Versioning and Addendum Framework integration. Aligns ai-compliance-extractors with the framework piloted in dyscalculia-support-skill v1.3.0–v1.3.2 and applied to dyslexia-support-skill v1.3.0 and LLMComplianceSkill v1.2.0.
@@ -71,7 +77,7 @@ Every extractor output (JSON, Markdown, HTML) should include a provenance block 
 ```
 Generated YYYY-MM-DD by @justice8096/ai-compliance-extractors vX.Y.Z (<git-short-hash>)
 Sources current as of YYYY-MM except where individual sections note otherwise.
-Standards versions: OWASP LLM Top 10 v1.1, MITRE ATLAS v4.7.0, NIST SP 800-218A 2024-02, etc.
+Standards versions: OWASP Top 10 for LLM Applications 2025, MITRE ATLAS v4.7.0, NIST SP 800-218A 2024-02, etc.
 Library changelog: https://github.com/justice8096/ai-compliance-extractors/blob/master/CHANGELOG.md
 ```
 

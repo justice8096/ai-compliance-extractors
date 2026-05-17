@@ -9,7 +9,7 @@ description: >-
   to comply with regulations in specific countries or jurisdictions. Also trigger
   when the user asks to "generate compliance templates", "check compliance",
   "run evidence checker", or "fill compliance config".
-version: 1.1.0
+version: 1.1.1
 ---
 
 # AI Compliance Evidence Collection Kit
