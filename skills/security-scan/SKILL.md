@@ -1,7 +1,7 @@
 ---
 name: security-scan
 description: Run OWASP LLM Top 10, dependency CVE, SAST pattern, and secrets scanning against any codebase
-version: 1.0.0
+version: 1.1.0
 ---
 
 # Security Scan Tools Skill
@@ -35,6 +35,8 @@ security-scan <repo-path> --json --compliance
 ```
 
 ## Scanners
+
+> *Sources current as of 2026-05. Authority-version pins: OWASP LLM Top 10 v1.1 (2024-10); OWASP Top 10:2021; MITRE ATLAS v4.7.0 (2025-01); NIST SP 800-218A (Secure Software Development Framework, 2024-02); CWE Top 25 (2024 release). Dependency-audit backends: npm audit (advisory DB current at scan time), pip-audit (uses OSV.dev), osv-scanner (uses OSV.dev). CWE numbering references the official CWE list at cwe.mitre.org — verify a finding's CWE number is still current; CWE entries are occasionally deprecated or renumbered. Secret-detection regex patterns are heuristic; new credential formats (e.g., new platforms' tokens) require pattern updates here.*
 
 ### OWASP LLM Top 10 (2025)
 Checks for: prompt injection, sensitive info disclosure, supply chain vulnerabilities, data poisoning, improper output handling, excessive agency, system prompt leakage, vector/embedding weaknesses, misinformation, unbounded consumption.

@@ -1,7 +1,7 @@
 ---
 name: ai-compliance-extractors
 description: Extract AI compliance evidence from git repos — commit history, dependencies, and CI/CD pipelines
-version: 0.1.0
+version: 1.1.0
 ---
 
 # AI Compliance Extractors Skill
